@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem
+    id="real_state_root_menu"
+    name="Daily Reports"
+    web_icon="distributor_track,static\description\icon.png"
+    />
+    <menuitem
+    id="daily_reports_menu"
+    name="Daily Reports"
+    parent="real_state_root_menu"
+    />
+
+
+
+</odoo>

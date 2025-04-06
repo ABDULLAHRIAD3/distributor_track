@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="daily_reports_view_kanban" model="ir.ui.view">
+        <field name="name">daily_reports.kanban</field>
+        <field name="model">daily_reports</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_view">
+                <field name="state" invisible="context.get('group_by') != 'state'"/>
+                <field name="state_g"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="time_of_visit"/>
+                <field name="end_of_date_visit"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong> <lable>اسم العميل :   </lable><field name="partner_id" /></strong>
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                            </svg> <lable>وقت الزيارة :   </lable><field name="time_of_visit"/></div>
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/></svg><lable>إسم المسؤول :   </lable><field name="user_id"/></div>
+                            <field name="state" optional="show" widget='badge'
+                                decoration-success="state == '1_done'"
+                                decoration-info="state == 'draft'"
+                                decoration-warning="state == 'in_progress'"
+                            />
+                            <field name="state" widget="todo_done_checkmark" groups="distributor_track.distributor_manager_group"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="daily_reports_view_list" model="ir.ui.view">
+        <field name="name">daily_reports.list</field>
+        <field name="model">daily_reports</field>
+        <field name="arch" type="xml">
+            <list string="Daily Reports" multi_edit="1">
+
+                <field name="partner_id"/>
+                <field name="state_g"/>
+                <field name="state" optional="show" widget='badge'
+                    decoration-success="state == '1_done'"
+                    decoration-info="state == 'in_progress'"
+                    decoration-warning="state == 'draft'"
+                />
+                <field name="time_of_visit"/>
+                <field name="end_of_date_visit"/>
+                <field name="district" optional="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="daily_reports_view_form" model="ir.ui.view">
+        <field name="name">daily_reports.form</field>
+        <field name="model">daily_reports</field>
+        <field name="arch" type="xml">
+            <form string="Daily Reports">
+                <sheet class="oe_form_rtl">
+                    <header groups="distributor_track.distributor_manager_group">
+                        <button name="action_draft" type="object" class="btn-primary" string="تحويل لمسودة"/>
+                        <button name="action_in_progress" type="object" class="btn-primary" string="تحويل قيد المراجعة"/>
+                        <button name="action_done" type="object" class="btn-primary" string="تحويل مكتمل"/>
+                        <field name="state" widget="todo_done_checkmark"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group>
+
+                        <group string="بيانات المسؤول">
+                             <field name="user_id" string="المسؤول"/>
+                             <field name="team_id" readonly="0" />
+                        </group>
+
+                        <group string="اسم العميل" class="o_inner_group grid col-lg-12">
+                            <div class="oe_title" >
+                            <label for="partner_id"/>
+                                <h1>
+                                    <field name="partner_id"/>
+                                </h1>
+                            </div>
+                        </group>
+                        <group string="عنوان العميل">
+                            <field name="state_g" string="المحافظة"/>
+                            <field name="district" string="المديرية"/>
+                            <field name="area" string="المنطقة"/>
+                            <field name="street" string="الشارع"/>
+                        </group>
+
+
+
+                        <div>
+                            <group string="وقت الزيارة">
+                                <field name="time_of_visit" string="من"/>
+                                <field name="end_of_date_visit" string="إلى"/>
+                            </group>
+
+                        </div>
+
+
+
+                        <group string="المنتجات المباعة">
+                            <field name="battery_okaya" string="بطاريات اوكايا"/>
+                            <field name="okaya_inverter" string="محولات اوكايا"/>
+                            <field name="hyperd_inverter" string="محولات هايبرد"/>
+                            <field name="mppt_controller" string="منظم شحن MPPT"/>
+                            <field name="solar_panel" string="الواح شمسية"/>
+                            <field name="lithium_battery" string="بطاريات ليثوم"/>
+                            <field name="daya_inverter" string="محول دايا"/>
+                            <field name="distilled_water" string="ماء مقطر"/>
+                            <field name="another" string="أخرى"/>
+                        </group>
+
+                        <group string="نتائج الزيارة">
+                            <field name="preview_battery_production_date" string="أقدم تاريخ بطارية اوكايا"/>
+                            <field name="preview_inverter_production_date" string="أقدم تاريخ محول اوكايا"/>
+                            <field name="account_statement" string="مطابقة كشف الحساب"/>
+                            <field name="debt_report" string="مراجعة تقرير مديونية العملاء"/>
+                            <field name="compliance_sales_policy" string="في حاله البيع الآجل هل يلتزم الموزع بسياسة المبيعات والتحصيل:"/>
+                            <field name="reason" string="إذا كانت لا اذكر السبب"/>
+                            <field name="product_price_list" string="عرض كشف أسعار المنتجات"/>
+                            <field name="total_debt" string="اجمالي مديونية البضاعة المبياعة"/>
+                            <field name="number_of_warranty_cards" string="عدد كروت الضمان المستلمة"/>
+                            <field name="number_of_maintenance_requests" string="عدد طلبات الصيانة"/>
+                            <field name="type_of_maintenance_requests" string="انواع طلبات الصيانة"/>
+                            <field name="new_warranty_cards_delivery" string="تسليم كروت الضمان الجديدة"/>
+                            <field name="delivery_battery_instructions_guidelines" string="تسليم تعليمات وإرشادات البطاريات"/>
+                        </group>
+
+                        <group string="الكميات التي تم الاتفاق على تنزيلها">
+                            <field name="battery_okaya_delivery" string="بطاريات اوكايا عدد:"/>
+                            <field name="inverter_okaya_delivery" string="محولات اوكايا عدد:"/>
+                            <field name="hyperd_inverter_delivery" string="محولات اوكايا عدد:"/>
+                            <field name="mppt_controller_delivery" string="منظمات MPPT :"/>
+                            <field name="solar_panel_delivery" string="ألواح شمسية:"/>
+                            <field name="lithium_battery_delivery" string="بطاريات ليثيوم:"/>
+                            <field name="daya_inverter_delivery" string="محولات دايا:"/>
+                            <field name="distilled_water_delivery" string="ماء مقطر:"/>
+                            <field name="another_delivery" string="اخرى:"/>
+                        </group>
+
+                        <group string="التحصيل">
+                            <field name="cash" string="نقدا"/>
+                            <field name="credit" string="آجل"/>
+                            <field name="collection" string="تحصيل"/>
+                            <field name="other_notes" string="ملاحظات أخرى:"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="daily_reports_view_search" model="ir.ui.view">
+        <field name="name">daily_reports.search</field>
+        <field name="model">daily_reports</field>
+        <field name="arch" type="xml">
+            <search string="Daily Reports">
+                <field name="state"/>
+                <filter name="1_done" string="إخفاء ماتمت مراجعته" domain="[('state', '!=', '1_done')]" help="إخفاء التقارير التي تمت مراجعتها"/>
+                <field name="time_of_visit"/>
+                <field name="end_of_date_visit"/>
+                <field name="district"/>
+                <field name="battery_okaya"/>
+                <field name="okaya_inverter"/>
+                <field name="hyperd_inverter"/>
+                <field name="mppt_controller"/>
+                <field name="solar_panel"/>
+                <field name="lithium_battery"/>
+                <field name="daya_inverter"/>
+                <field name="distilled_water"/>
+
+
+                <filter name="is_okaya_battery" string="With Battery Okaya" domain="[('battery_okaya','=','True')]"/>
+
+                <filter name="group_okaya_battery" string="Okaya Battery" context="{'group_by':'battery_okaya'}"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="daily_reports_action" model="ir.actions.act_window">
+        <field name="name">التقرير اليومي لمندوبي التوزيع</field>
+        <field name="res_model">daily_reports</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_1_done': 1, 'default_domain': "[('state', '!=', '1_done')]"} </field>
+    </record>
+
+    <menuitem
+            id="daily_reports_main_menu"
+            name="Daily Reports"
+    />
+
+    <menuitem
+            id="daily_reports_menu_item"
+            name="Daily Reports"
+            parent="daily_reports_menu"
+            action="daily_reports_action"/>
+
+</odoo>

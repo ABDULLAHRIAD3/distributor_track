@@ -1,0 +1,606 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* distributor_track
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-03 07:27+0000\n"
+"PO-Revision-Date: 2025-04-03 07:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__account_statement
+msgid "Account Statement"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__state_g
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__another
+msgid "Another"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__another_delivery
+msgid "Another Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__battery_okaya
+msgid "Battery Okaya"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__battery_okaya_delivery
+msgid "Battery Okaya Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__cash
+msgid "Cash"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__district
+msgid "City"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__collection
+msgid "Collection"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__compliance_sales_policy
+msgid "Compliance Sales Policy"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__credit
+msgid "Credit"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model,name:distributor_track.model_daily_reports
+#: model:ir.ui.menu,name:distributor_track.daily_reports_main_menu
+#: model:ir.ui.menu,name:distributor_track.daily_reports_menu
+#: model:ir.ui.menu,name:distributor_track.daily_reports_menu_item
+#: model:ir.ui.menu,name:distributor_track.real_state_root_menu
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_list
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "Daily Reports"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__daya_inverter
+msgid "Daya Inverter"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__daya_inverter_delivery
+msgid "Daya Inverter Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__debt_report
+msgid "Debt Report"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__delivery_battery_instructions_guidelines
+msgid "Delivery Battery Instructions Guidelines"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__distilled_water
+msgid "Distilled Water"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__distilled_water_delivery
+msgid "Distilled Water Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__end_of_date_visit
+msgid "End Of Date Visit"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__hyperd_inverter
+msgid "Hyperd Inverter"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__hyperd_inverter_delivery
+msgid "Hyperd Inverter Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__id
+msgid "ID"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__inverter_okaya_delivery
+msgid "Inverter Okaya Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__lithium_battery
+msgid "Lithium Battery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__lithium_battery_delivery
+msgid "Lithium Battery Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__mppt_controller
+msgid "Mppt Controller"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__mppt_controller_delivery
+msgid "Mppt Controller Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__new_warranty_cards_delivery
+msgid "New Warranty Cards Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__number_of_maintenance_requests
+msgid "Number Of Maintenance Requests"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__number_of_warranty_cards
+msgid "Number Of Warranty Cards"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "Okaya Battery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__okaya_inverter
+msgid "Okaya Inverter"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__other_notes
+msgid "Other Notes"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__preview_battery_production_date
+msgid "Preview Battery Production Date"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__preview_inverter_production_date
+msgid "Preview Inverter Production Date"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__product_price_list
+msgid "Product Price List"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__reason
+msgid "Reason"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__team_id
+msgid "Sales Team"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__solar_panel
+msgid "Solar Panel"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__solar_panel_delivery
+msgid "Solar Panel Delivery"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__street
+msgid "Street"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__area
+msgid "Street2"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__team
+msgid "Team"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__time_of_visit
+msgid "Time Of Visit"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__total_debt
+msgid "Total Debt"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__type_of_maintenance_requests
+msgid "Type Of Maintenance Requests"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "With Battery Okaya"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "آجل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "أخرى"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "أقدم تاريخ بطارية اوكايا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "أقدم تاريخ محول اوكايا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "ألواح شمسية:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "إخفاء التقارير التي تمت مراجعتها"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "إخفاء ماتمت مراجعتة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "إذا كانت لا اذكر السبب"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
+msgid "إسم المسؤول :"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "إلى"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "اجمالي مديونية البضاعة المبياعة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "اخرى:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "اسم العميل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
+msgid "اسم العميل :"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "التحصيل"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.actions.act_window,name:distributor_track.daily_reports_action
+msgid "التقرير اليومي لمندوبي التوزيع"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__state
+msgid "الحالة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "الشارع"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__partner_id
+msgid "العميل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "الكميات التي تم الاتفاق على تنزيلها"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__state_g
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "المحافظة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "المديرية"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__user_id
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "المسؤول"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "المنتجات المباعة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "المنطقة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "الواح شمسية"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "انواع طلبات الصيانة"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields.selection,name:distributor_track.selection__daily_reports__state__draft
+msgid "بإنتظار المراجعه"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "بطاريات اوكايا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "بطاريات اوكايا عدد:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "بطاريات ليثوم"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "بطاريات ليثيوم:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "بيانات المسؤول"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تحصيل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تحويل قيد المراجعة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تحويل لمسودة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تحويل مكتمل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تسليم تعليمات وإرشادات البطاريات"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "تسليم كروت الضمان الجديدة"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields.selection,name:distributor_track.selection__daily_reports__state__1_done
+msgid "تمت مراجعته"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "عدد طلبات الصيانة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "عدد كروت الضمان المستلمة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "عرض كشف أسعار المنتجات"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "عنوان العميل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "في حاله البيع الآجل هل يلتزم الموزع بسياسة المبيعات والتحصيل:"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields.selection,name:distributor_track.selection__daily_reports__state__in_progress
+msgid "قيد المراجعة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "ماء مقطر"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "ماء مقطر:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محول دايا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محولات اوكايا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محولات اوكايا عدد:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محولات دايا:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محولات هايبرد"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__reviewed_by
+msgid "مراجع من قبل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "مراجعة تقرير مديونية العملاء"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "مطابقة كشف الحساب"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "ملاحظات أخرى:"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "من"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "منظم شحن MPPT"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "منظمات MPPT :"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "نتائج الزيارة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "نقدا"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "وقت الزيارة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
+msgid "وقت الزيارة :"
+msgstr ""
