@@ -3,7 +3,7 @@
     'author': "Abdullah Riad",
     'category': '',
     'version': '18.0.1.0',
-    'depends': ['base','contacts','crm'
+    'depends': ['base','contacts','crm',
                 ],
     'data': [
         'security/security.xml',
