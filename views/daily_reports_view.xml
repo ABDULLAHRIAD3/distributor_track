@@ -13,15 +13,14 @@
                 <field name="user_id"/>
                 <field name="time_of_visit"/>
                 <field name="end_of_date_visit"/>
-
                 <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card">
-                            <strong> <lable>اسم العميل :   </lable><field name="partner_id" /></strong>
+                    <t t-name="kanban-box" >
+                        <div class="oe_kanban_card" >
+                            <strong> <span class="o_form_label">اسم العميل :   </span><field name="partner_id" /></strong>
                             <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                             <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
-                            </svg> <lable>وقت الزيارة :   </lable><field name="time_of_visit"/></div>
+                            </svg> <span class="o_form_label">وقت الزيارة :   </span><field name="time_of_visit"/></div>
                             <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/></svg><lable>إسم المسؤول :   </lable><field name="user_id"/></div>
                             <field name="state" optional="show" widget='badge'
@@ -37,13 +36,11 @@
         </field>
     </record>
 
-
     <record id="daily_reports_view_list" model="ir.ui.view">
         <field name="name">daily_reports.list</field>
         <field name="model">daily_reports</field>
         <field name="arch" type="xml">
             <list string="Daily Reports" multi_edit="1">
-
                 <field name="partner_id"/>
                 <field name="state_g"/>
                 <field name="state" optional="show" widget='badge'
@@ -73,15 +70,13 @@
                     </header>
 
                     <group>
-
                         <group string="بيانات المسؤول">
                              <field name="user_id" string="المسؤول"/>
                              <field name="team_id" readonly="0" />
                         </group>
-
                         <group string="اسم العميل" class="o_inner_group grid col-lg-12">
                             <div class="oe_title" >
-                            <label for="partner_id"/>
+                            <span class="o_form_label" for="partner_id"/>
                                 <h1>
                                     <field name="partner_id"/>
                                 </h1>
@@ -92,19 +87,15 @@
                             <field name="district" string="المديرية"/>
                             <field name="area" string="المنطقة"/>
                             <field name="street" string="الشارع"/>
+                            <field name="date_of_oldest_battery" readonly="0"/>
                         </group>
-
-
 
                         <div>
                             <group string="وقت الزيارة">
                                 <field name="time_of_visit" string="من"/>
                                 <field name="end_of_date_visit" string="إلى"/>
                             </group>
-
                         </div>
-
-
 
                         <group string="المنتجات المباعة">
                             <field name="battery_okaya" string="بطاريات اوكايا"/>
@@ -112,15 +103,15 @@
                             <field name="hyperd_inverter" string="محولات هايبرد"/>
                             <field name="mppt_controller" string="منظم شحن MPPT"/>
                             <field name="solar_panel" string="الواح شمسية"/>
-                            <field name="lithium_battery" string="بطاريات ليثوم"/>
+                            <field name="lithium_battery" string="بطاريات ليثيوم"/>
                             <field name="daya_inverter" string="محول دايا"/>
+                            <field name="circuit_breakers" string="قواطع كهربائية"/>
+                            <field name="electrical_cables" string="كيبلات كهربائية"/>
                             <field name="distilled_water" string="ماء مقطر"/>
                             <field name="another" string="أخرى"/>
                         </group>
 
                         <group string="نتائج الزيارة">
-                            <field name="preview_battery_production_date" string="أقدم تاريخ بطارية اوكايا"/>
-                            <field name="preview_inverter_production_date" string="أقدم تاريخ محول اوكايا"/>
                             <field name="account_statement" string="مطابقة كشف الحساب"/>
                             <field name="debt_report" string="مراجعة تقرير مديونية العملاء"/>
                             <field name="compliance_sales_policy" string="في حاله البيع الآجل هل يلتزم الموزع بسياسة المبيعات والتحصيل:"/>
@@ -137,11 +128,13 @@
                         <group string="الكميات التي تم الاتفاق على تنزيلها">
                             <field name="battery_okaya_delivery" string="بطاريات اوكايا عدد:"/>
                             <field name="inverter_okaya_delivery" string="محولات اوكايا عدد:"/>
-                            <field name="hyperd_inverter_delivery" string="محولات اوكايا عدد:"/>
-                            <field name="mppt_controller_delivery" string="منظمات MPPT :"/>
-                            <field name="solar_panel_delivery" string="ألواح شمسية:"/>
-                            <field name="lithium_battery_delivery" string="بطاريات ليثيوم:"/>
-                            <field name="daya_inverter_delivery" string="محولات دايا:"/>
+                            <field name="hyperd_inverter_delivery" string="محولات هايبرد فالي عدد:"/>
+                            <field name="mppt_controller_delivery" string="منظمات شحن فالي :"/>
+                            <field name="solar_panel_delivery" string="ألواح شمسية جينكو:"/>
+                            <field name="lithium_battery_delivery" string="بطاريات ليثيوم بأنواعها:"/>
+                            <field name="daya_inverter_delivery" string="محولات هايبرد دايا:"/>
+                            <field name="circuit_breakers_delivery" string="قواطع كهربائية بأنواعها:"/>
+                            <field name="electrical_cables_delivery" string="كيبلات كهربائية بأنواعها:"/>
                             <field name="distilled_water_delivery" string="ماء مقطر:"/>
                             <field name="another_delivery" string="اخرى:"/>
                         </group>
@@ -154,13 +147,14 @@
                         </group>
 
                     </group>
-
                 </sheet>
+
                 <chatter class="oe_chatter">
                     <field name="message_follower_ids" />
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </chatter>
+
             </form>
         </field>
     </record>
@@ -183,12 +177,8 @@
                 <field name="lithium_battery"/>
                 <field name="daya_inverter"/>
                 <field name="distilled_water"/>
-
-
                 <filter name="is_okaya_battery" string="With Battery Okaya" domain="[('battery_okaya','=','True')]"/>
-
-                <filter name="group_okaya_battery" string="Okaya Battery" context="{'group_by':'battery_okaya'}"/>
-
+                <filter name="group_okaya_battery" string="تجميع حسب بطاريات أوكايا" context="{'group_by':'battery_okaya'}"/>
             </search>
         </field>
     </record>
@@ -197,18 +187,16 @@
         <field name="name">التقرير اليومي لمندوبي التوزيع</field>
         <field name="res_model">daily_reports</field>
         <field name="view_mode">kanban,list,form</field>
-        <field name="context">{'search_default_1_done': 1, 'default_domain': "[('state', '!=', '1_done')]"} </field>
+        <field name="context">{'search_default_1_done': 1}</field>
     </record>
 
     <menuitem
             id="daily_reports_main_menu"
             name="Daily Reports"
     />
-
     <menuitem
             id="daily_reports_menu_item"
             name="Daily Reports"
             parent="daily_reports_menu"
             action="daily_reports_action"/>
-
 </odoo>

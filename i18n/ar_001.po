@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-05 05:23+0000\n"
-"PO-Revision-Date: 2025-04-05 08:25+0300\n"
+"POT-Creation-Date: 2025-04-12 05:48+0000\n"
+"PO-Revision-Date: 2025-04-12 08:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -18,9 +18,44 @@ msgstr ""
 "X-Generator: Poedit 3.6\n"
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
+msgid "<span class=\"o_form_label\">اسم العميل :   </span>"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
+msgid "<span class=\"o_form_label\">وقت الزيارة :   </span>"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__account_statement
 msgid "Account Statement"
 msgstr "كشف الحساب"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,help:distributor_track.field_daily_reports__state_g
@@ -36,6 +71,11 @@ msgstr "اخرى"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__another_delivery
 msgid "Another Delivery"
 msgstr "تسليم آخر"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__battery_okaya
@@ -68,6 +108,11 @@ msgid "Compliance Sales Policy"
 msgstr "الألتزام بسياسة المبيعات"
 
 #. module: distributor_track
+#: model:ir.model,name:distributor_track.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__create_uid
 msgid "Created by"
 msgstr "أنشئ بواسطة"
@@ -85,14 +130,18 @@ msgstr "آجل"
 #. module: distributor_track
 #: model:ir.model,name:distributor_track.model_daily_reports
 #: model:ir.ui.menu,name:distributor_track.daily_reports_main_menu
-#: model:ir.ui.menu,name:distributor_track.daily_reports_menu
 #: model:ir.ui.menu,name:distributor_track.daily_reports_menu_item
-#: model:ir.ui.menu,name:distributor_track.real_state_root_menu
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_list
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
 msgid "Daily Reports"
 msgstr "التقرير اليومي "
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_res_partner__date_of_oldest_battery
+#: model:ir.model.fields,field_description:distributor_track.field_res_users__date_of_oldest_battery
+msgid "Date Of Oldest Battery"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__daya_inverter
@@ -132,17 +181,44 @@ msgstr "تسليم الماء المقطر"
 #. module: distributor_track
 #: model:res.groups,name:distributor_track.distributor_manager_group
 msgid "Distributor Manager"
-msgstr "مدير مسار الموزع"
+msgstr "مدير الموزعين"
 
 #. module: distributor_track
 #: model:ir.module.category,name:distributor_track.daily_reports_category
+#: model:ir.ui.menu,name:distributor_track.daily_reports_menu
+#: model:ir.ui.menu,name:distributor_track.real_state_root_menu
 msgid "Distributor Track"
 msgstr "مسار الموزع"
+
+#. module: distributor_track
+#: model:res.groups,name:distributor_track.distributor_user_group
+msgid "Distributor User"
+msgstr "الموزع"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__end_of_date_visit
 msgid "End Of Date Visit"
 msgstr "انتهاء وقت الزيارة"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__hyperd_inverter
@@ -160,9 +236,35 @@ msgid "ID"
 msgstr "المعرف"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__message_has_error
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__inverter_okaya_delivery
 msgid "Inverter Okaya Delivery"
 msgstr "تسليم محولات اوكايا"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_is_follower
+msgid "Is Follower"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__write_uid
@@ -185,6 +287,21 @@ msgid "Lithium Battery Delivery"
 msgstr "تسليم بطاريات ليثيوم"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__mppt_controller
 msgid "Mppt Controller"
 msgstr "محولات MPPT"
@@ -195,9 +312,34 @@ msgid "Mppt Controller Delivery"
 msgstr "تسليم محولات MPPT"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__new_warranty_cards_delivery
 msgid "New Warranty Cards Delivery"
 msgstr "تسليم كروت الضمان الجديدة"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__number_of_maintenance_requests
@@ -210,9 +352,24 @@ msgid "Number Of Warranty Cards"
 msgstr "عدد كروت الضمان"
 
 #. module: distributor_track
-#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
-msgid "Okaya Battery"
-msgstr "بطاريات اوكايا"
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__okaya_inverter
@@ -230,19 +387,29 @@ msgid "Preview Battery Production Date"
 msgstr "اقدم تاريخ بطارية اوكايا"
 
 #. module: distributor_track
-#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__preview_inverter_production_date
-msgid "Preview Inverter Production Date"
-msgstr ""
-
-#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__product_price_list
 msgid "Product Price List"
 msgstr "عرض كشف أسعار المنتجات"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__reason
 msgid "Reason"
 msgstr "السبب"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__team_id
@@ -258,6 +425,15 @@ msgstr "الواح شمسية"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__solar_panel_delivery
 msgid "Solar Panel Delivery"
 msgstr "تسليم الواح شمسية"
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__street
@@ -290,6 +466,21 @@ msgid "Type Of Maintenance Requests"
 msgstr "نوع طلبات الصيانة"
 
 #. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_reports__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
 msgid "With Battery Okaya"
 msgstr "التقارير التي تحتوي على بطاريات اوكايا"
@@ -306,16 +497,6 @@ msgstr ""
 
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
-msgid "أقدم تاريخ بطارية اوكايا"
-msgstr ""
-
-#. module: distributor_track
-#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
-msgid "أقدم تاريخ محول اوكايا"
-msgstr ""
-
-#. module: distributor_track
-#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "ألواح شمسية:"
 msgstr ""
 
@@ -326,7 +507,7 @@ msgstr ""
 
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
-msgid "إخفاء ماتمت مراجعتة"
+msgid "إخفاء ماتمت مراجعته"
 msgstr ""
 
 #. module: distributor_track
@@ -357,11 +538,6 @@ msgstr ""
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "اسم العميل"
-msgstr ""
-
-#. module: distributor_track
-#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
-msgid "اسم العميل :"
 msgstr ""
 
 #. module: distributor_track
@@ -459,6 +635,16 @@ msgstr ""
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "بيانات المسؤول"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_reports__date_of_oldest_battery
+msgid "تاريخ أقدم بطارية"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
+msgid "تجميع حسب بطاريات أوكايا"
 msgstr ""
 
 #. module: distributor_track
@@ -562,6 +748,11 @@ msgid "محولات هايبرد"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+msgid "محولات هايبرد عدد:"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__reviewed_by
 msgid "مراجع من قبل"
 msgstr ""
@@ -609,9 +800,4 @@ msgstr ""
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "وقت الزيارة"
-msgstr ""
-
-#. module: distributor_track
-#: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_kanban
-msgid "وقت الزيارة :"
 msgstr ""

@@ -3,15 +3,12 @@
 <odoo>
     <menuitem
     id="real_state_root_menu"
-    name="Daily Reports"
+    name="Distributor Track"
     web_icon="distributor_track,static\description\icon.png"
     />
     <menuitem
     id="daily_reports_menu"
-    name="Daily Reports"
+    name="Distributor Track"
     parent="real_state_root_menu"
     />
-
-
-
 </odoo>

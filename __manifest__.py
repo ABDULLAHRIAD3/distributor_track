@@ -9,7 +9,8 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/base_menu.xml',
-        'views/daily_reports_view.xml'
+        'views/daily_reports_view.xml',
+        'views/res_partner_view.xml'
     ],
     'assets':{
         'web.assets_backend':[
