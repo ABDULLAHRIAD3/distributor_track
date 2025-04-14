@@ -17,7 +17,7 @@ class DailyReports(models.Model):
      #   comodel_name='res.partner',
       #  string="f"
     #)
-    date_of_oldest_battery = fields.Date(string="تاريخ أقدم بطارية", readonly=False, tracking=1)
+    date_of_oldest_battery = fields.Date(string="تاريخ أقدم بطارية", readonly=False, tracking=1,required=True)
 
     user_id = fields.Many2one(
         comodel_name='res.users',
@@ -28,7 +28,8 @@ class DailyReports(models.Model):
 
     team_id = fields.Many2one(
         'crm.team',
-        string="Sales Team"
+        string="Sales Team",
+        required=True
     )
 
     '''shop_owner_name = fields.Char()
