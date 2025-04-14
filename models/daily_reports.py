@@ -1,5 +1,6 @@
 from odoo import models, fields , api
 from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
 
 class DailyReports(models.Model):
@@ -128,8 +129,10 @@ class DailyReports(models.Model):
         return res
 
     def unlink(self):
-        res = super(DailyReports, self).unlink()
-        return res
+        for record in self:
+            if record.state != 'draft':
+                raise UserError("لا يمكن حذف التقرير بعد خروجه من حالة المسودة (Draft).")
+        return super(DailyReports, self).unlink()
 
     def action_draft(self):
         for res in self:
