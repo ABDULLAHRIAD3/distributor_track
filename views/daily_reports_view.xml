@@ -72,7 +72,9 @@
                     <group>
                         <group string="بيانات المسؤول">
                              <field name="user_id" string="المسؤول"/>
-                             <field name="team_id" readonly="0" />
+                             <field name="team_id" widget="selection" domain="[]" context="{}"/>
+
+
                         </group>
                         <group string="اسم العميل" class="o_inner_group grid col-lg-12">
                             <div class="oe_title" >
