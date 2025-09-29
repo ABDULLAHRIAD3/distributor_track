@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Copyright 2025 Abdullah Riad Joher <abdullah22riad@gmail.com>
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html)
 {
     'name': "Distributor Track",
     'author': "Abdullah Riad",
@@ -12,11 +15,7 @@
         'views/daily_reports_view.xml',
         'views/res_partner_view.xml'
     ],
-    'assets':{
-        'web.assets_backend':[
-            'distributor_track\static\src\css\distributor_track.css'
-        ]
-    },
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
 }

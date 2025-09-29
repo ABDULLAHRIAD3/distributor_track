@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# Copyright 2025 Abdullah Riad Joher <abdullah22riad@gmail.com>
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html)
+
 from odoo import models, fields , api
 from odoo.exceptions import ValidationError
 from odoo.exceptions import UserError
@@ -33,13 +37,24 @@ class DailyReports(models.Model):
         required=True
     )
 
+    show_draft_button = fields.Boolean(compute='_compute_show_buttons')
+    show_in_progress_button = fields.Boolean(compute='_compute_show_buttons')
+    show_done_button = fields.Boolean(compute='_compute_show_buttons')
+
+    @api.depends('state')
+    def _compute_show_buttons(self):
+        for rec in self:
+            rec.show_draft_button = rec.state in ('in_progress', '1_done')
+            rec.show_in_progress_button = rec.state in ('draft', '1_done')
+            rec.show_done_button = rec.state in ('draft', 'in_progress')
+
     '''shop_owner_name = fields.Char()
     shop_supervisor = fields.Char()'''
     team = fields.Char(tracking=1)
     time_of_visit = fields.Datetime(required=True,tracking=1)
     end_of_date_visit = fields.Datetime(required=True,tracking=1)
-    district = fields.Char(related='partner_id.city',readonly='1',tracking=1)
-    state_g = fields.Char(related='partner_id.state_id.name',readonly='1',string="المحافظة",tracking=1)
+    district = fields.Char(related='partner_id.city',readonly='True',tracking=1)
+    state_g = fields.Char(related='partner_id.state_id.name',readonly='True',string="المحافظة",tracking=1)
     area = fields.Char(related='partner_id.street2',tracking=1)
     street = fields.Char(related='partner_id.street',tracking=1)
     battery_okaya = fields.Boolean(tracking=1)
@@ -147,7 +162,6 @@ class DailyReports(models.Model):
             res.state = '1_done'
 
     def action_mark_reviewed(self):
-        """يتم تعيين التقرير كمراجع ومكتمل"""
         for record in self:
-            record.state = '1_done'  #
+            record.state = '1_done'
             record.reviewed_by = self.env.user

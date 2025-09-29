@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- # -*- coding: utf-8 -*-
+# Copyright 2025 Abdullah Riad Joher <abdullah22riad@gmail.com>
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html) -->
 <odoo>
 
     <record id="view_partner_form_inherit" model="ir.ui.view">
