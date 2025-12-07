@@ -9,7 +9,6 @@
         <field name="model">daily_reports</field>
         <field name="arch" type="xml">
             <kanban default_group_by="state" class="o_kanban_view">
-                <field name="state" invisible="context.get('group_by') != 'state'"/>
                 <field name="state_g"/>
                 <field name="partner_id"/>
                 <field name="user_id"/>
@@ -18,7 +17,7 @@
                 <templates>
                     <t t-name="kanban-box" >
                         <div class="oe_kanban_card" >
-                            <strong> <span class="o_form_label">اسم العميل :   </span><field name="partner_id" /></strong>
+                            <strong> <span class="o_form_label">اسم الموزع :   </span><field name="partner_id" /></strong>
                             <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                             <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
@@ -192,15 +191,32 @@
         <field name="res_model">daily_reports</field>
         <field name="view_mode">kanban,list,form</field>
         <field name="context">{'search_default_1_done': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                اضغط على "إنشاء" لإضافة تقرير يومي جديد.
+            </p>
+        </field>
     </record>
 
-    <menuitem
-            id="daily_reports_main_menu"
-            name="Daily Reports"
+    <!--<menuitem
+    id="daily_reports_menu"
+    name="Daily Reports"
+    parent="distributor_daily_reports_menu"
     />
+
     <menuitem
-            id="daily_reports_menu_item"
-            name="Daily Reports"
-            parent="daily_reports_menu"
-            action="daily_reports_action"/>
+        id="daily_reports_menu_item"
+        name="Daily Reports"
+        parent="daily_reports_menu"
+        action="daily_reports_action"/>
+    
+    <menuitem
+        id="menu_daily_visit_summary"
+        name="Daily Visit Summary"
+        parent="daily_reports_menu"
+        sequence="1"
+        action="action_daily_visit_summary"
+    />
+    -->
+
 </odoo>

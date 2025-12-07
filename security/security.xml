@@ -1,11 +1,11 @@
 <odoo>
 
-    <!-- تصنيف الصلاحيات -->
+    <!-- Category -->
     <record id="daily_reports_category" model="ir.module.category">
         <field name="name">Distributor Track</field>
     </record>
 
-    <!-- مجموعات المستخدمين -->
+    <!-- Groups -->
     <record id="distributor_manager_group" model="res.groups">
         <field name="name">Distributor Manager</field>
         <field name="category_id" ref="distributor_track.daily_reports_category"/>
@@ -16,7 +16,18 @@
         <field name="category_id" ref="distributor_track.daily_reports_category"/>
     </record>
 
-    <!-- قاعدة الوصول للمستخدمين العاديين: فقط يشوفوا تقاريرهم -->
+    <!-- Summary Separate Groups -->
+    <record id="summary_user_group" model="res.groups">
+        <field name="name">Daily Summary User</field>
+        <field name="category_id" ref="distributor_track.daily_reports_category"/>
+    </record>
+
+    <record id="summary_manager_group" model="res.groups">
+        <field name="name">Daily Summary Manager</field>
+        <field name="category_id" ref="distributor_track.daily_reports_category"/>
+    </record>
+
+    <!-- Daily Reports Rules -->
     <record id="distributor_record_rule_by_user" model="ir.rule">
         <field name="name">distributor.by.user</field>
         <field name="model_id" ref="distributor_track.model_daily_reports" />
@@ -28,12 +39,34 @@
         <field name="perm_unlink" eval="True"/>
     </record>
 
-    <!-- قاعدة الوصول للمديرين: بدون قيود -->
     <record id="distributor_manager_rule" model="ir.rule">
         <field name="name">distributor.manager.access</field>
         <field name="model_id" ref="distributor_track.model_daily_reports" />
         <field name="domain_force">[]</field>
         <field name="groups" eval="[(4, ref('distributor_track.distributor_manager_group'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Daily Summary Rules -->
+    <record id="daily_visit_summary_rule_user" model="ir.rule">
+        <field name="name">daily.visit.summary.user.rule</field>
+        <field name="model_id" ref="distributor_track.model_daily_visit_summary"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('distributor_track.summary_user_group'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="daily_visit_summary_rule_manager" model="ir.rule">
+        <field name="name">daily.visit.summary.manager.rule</field>
+        <field name="model_id" ref="distributor_track.model_daily_visit_summary"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('distributor_track.summary_manager_group'))]"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_create" eval="True"/>

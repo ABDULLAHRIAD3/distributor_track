@@ -3,14 +3,28 @@
 # Copyright 2025 Abdullah Riad Joher <abdullah22riad@gmail.com>
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html) -->
 <odoo>
-    <menuitem
-    id="real_state_root_menu"
-    name="Distributor Track"
-    web_icon="distributor_track,static\description\icon.png"
-    />
-    <menuitem
-    id="daily_reports_menu"
-    name="Distributor Track"
-    parent="real_state_root_menu"
-    />
+    <data>
+
+        <menuitem
+            id="real_state_root_menu"
+            name="Distributor Track"
+            sequence="10"
+            web_icon="distributor_track,static/description/icon.png"
+        />
+
+        <menuitem
+            id="daily_reports_menu_item"
+            name="Daily Reports"
+            parent="real_state_root_menu"
+            action="daily_reports_action"
+            sequence="10"
+        />
+        <menuitem
+            id="distributor_configuration_menu_item"
+            name="الملخص اليومي"
+            parent="real_state_root_menu"
+            action="action_daily_visit_summary"
+            sequence="20"
+        />
+    </data>
 </odoo>

@@ -1,0 +1,142 @@
+<odoo>
+    <record id="view_daily_visit_summary_form" model="ir.ui.view">
+        <field name="name">daily.visit.summary.form</field>
+        <field name="model">daily.visit.summary</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                        <field name="assistant_id"/>
+                        <field name="date"/>
+                    </group>
+                    <!-- KPI header -->
+                    <xpath expr="//sheet" position="before">
+                        <div class="container mt16 mb16">
+                    
+                            <!-- الصف الأول: 4 KPIs -->
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="o_stat_card">
+                                        <div class="value">
+                                            <field name="total_visits" readonly="1"/>
+                                        </div>
+                                        <div class="label">عدد الزيارات</div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-3">
+                                    <div class="o_stat_card">
+                                        <div class="value">
+                                            <field name="total_collection" 
+                                                   options="{'currency_field': 'currency_id', 'precision': 0}" readonly="1"/>
+                                        </div>
+                                        <div class="label">إجمالي التحصيل</div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-3">
+                                    <div class="o_stat_card">
+                                        <div class="value">
+                                            <field name="total_cash" 
+                                                   options="{'currency_field': 'currency_id', 'precision': 0}" readonly="1"/>
+                                        </div>
+                                        <div class="label">إجمالي النقد</div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-3">
+                                    <div class="o_stat_card">
+                                        <div class="value">
+                                            <field name="total_credit" 
+                                                   options="{'currency_field': 'currency_id', 'precision': 0}" readonly="1"/>
+                                        </div>
+                                        <div class="label">إجمالي الآجل</div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- الصف الثاني: 3 بطاقات -->
+                            <div class="row mt16">
+                                <div class="col-4">
+                                    <div class="o_stat_card small">
+                                        <div class="value">
+                                            <field name="first_time_customers" readonly="1"/>
+                                        </div>
+                                        <div class="label">عملاء لأول مرة</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-4">
+                                    <div class="o_stat_card small">
+                                        <div class="label">النسبة مقارنة بالأمس</div>
+                                        <div class="value">
+                                            <field name="percent_vs_prev_day" widget="percentage" readonly="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-4">
+                                    <div class="o_stat_card small">
+                                        <div class="label">النسبة مقارنة بمتوسط 7 أيام</div>
+                                        <div class="value">
+                                            <field name="percent_vs_7day_avg" widget="percentage" readonly="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                
+                            </div>
+                    
+                        </div>
+                    </xpath>
+
+                    <notebook>
+                        <page string="Visit Reports">
+                            <field name="visit_report_ids">
+                                <list editable="bottom">
+                                    <field name="distributor"/>
+                                    <field name="cash"/>
+                                    <field name="collection"/>
+                                    <field name="credit"/> 
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </chatter>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_daily_visit_summary_tree" model="ir.ui.view">
+        <field name="name">daily.visit.summary.list</field>
+        <field name="model">daily.visit.summary</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="total_visits"/>
+                <field name="total_collection"/>
+                <field name="total_cash"/>
+                <field name="total_credit"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_daily_visit_summary" model="ir.actions.act_window">
+        <field name="name">Daily Summary</field>
+        <field name="res_model">daily.visit.summary</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+</odoo>

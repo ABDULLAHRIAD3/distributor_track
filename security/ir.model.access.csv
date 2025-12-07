@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_daily_reports_manager,daily_reports,model_daily_reports,distributor_track.distributor_manager_group,1,1,0,0
-access_daily_reports_user,daily_reports,model_daily_reports,distributor_track.distributor_user_group,0,0,0,0
+access_daily_reports_manager,daily_reports,model_daily_reports,distributor_track.distributor_manager_group,1,1,1,1
+access_daily_reports_user,daily_reports,model_daily_reports,distributor_track.distributor_user_group,1,1,1,0
+access_daily_visit_summary_manager,daily_visit_summary,model_daily_visit_summary,distributor_track.distributor_manager_group,1,1,1,1
+access_daily_visit_summary_user,daily_visit_summary,model_daily_visit_summary,distributor_track.distributor_user_group,1,1,1,0
+access_daily.visit.summary.line_manager,daily.visit.summary.line,model_daily_visit_summary_line,distributor_track.distributor_manager_group,1,1,1,1
+access_daily.visit.summary.line_user,daily.visit.summary.line,model_daily_visit_summary_line,distributor_track.distributor_user_group,1,1,1,1

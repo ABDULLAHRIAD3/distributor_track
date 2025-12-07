@@ -10,12 +10,13 @@ from odoo.exceptions import UserError
 class DailyReports(models.Model):
     _name = "daily_reports"
     _description = 'Daily Reports'
-    _inherit = ["mail.thread.main.attachment", "mail.activity.mixin"]
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
 
     partner_id = fields.Many2one(
-        'res.partner',  # الربط مع جهات الاتصال
+        'res.partner',  
         string="العميل",
-        required=True  # يمكن جعله إلزاميًا أو لا حسب الحاجة
+        required=True  ,
     )
 
     #date_of_oldest_battary = fields.One2many(
@@ -28,7 +29,8 @@ class DailyReports(models.Model):
         comodel_name='res.users',
         string="المسؤول",
         default=lambda self: self.env.user,
-        required=True
+        required=True,
+        tracking = False
     )
 
     team_id = fields.Many2one(
@@ -72,7 +74,7 @@ class DailyReports(models.Model):
     compliance_sales_policy = fields.Boolean(tracking=1)
     reason = fields.Text(tracking=1)
     product_price_list = fields.Boolean(tracking=1)
-    total_debt = fields.Float(tracking=1)
+    total_debt = fields.Float(tracking=1,required=True)
     number_of_warranty_cards= fields.Integer(tracking=1)
     number_of_maintenance_requests = fields.Integer(tracking=1)
     type_of_maintenance_requests= fields.Text(tracking=1)
@@ -90,7 +92,7 @@ class DailyReports(models.Model):
     cash = fields.Float(tracking=1)
     credit = fields.Float(tracking=1)
     collection = fields.Float(tracking=1)
-    other_notes = fields.Text(tracking=1)
+    other_notes = fields.Text(tracking=1,required=True)
     circuit_breakers = fields.Boolean(tracking=1)
     electrical_cables = fields.Boolean(tracking=1)
     electrical_cables_delivery = fields.Char(tracking=1)
@@ -109,13 +111,13 @@ class DailyReports(models.Model):
         return ['draft', 'in_progress', 'done', 'reviewed']
 
     @api.model_create_multi
-    @api.model
-    def create(self, vals):
-        report = super(DailyReports, self).create(vals)
-        if vals.get('partner_id') and vals.get('date_of_oldest_battery'):
-            partner = self.env['res.partner'].browse(vals['partner_id'])
-            partner.date_of_oldest_battery = vals['date_of_oldest_battery']
-        return report
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('partner_id') and vals.get('date_of_oldest_battery'):
+                partner = self.env['res.partner'].browse(vals['partner_id'])
+                partner.date_of_oldest_battery = vals['date_of_oldest_battery']
+                pass
+        return super().create(vals_list)
 
     @api.model
     def web_read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):

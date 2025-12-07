@@ -4,3 +4,5 @@
 
 from . import daily_reports
 from . import res_partner
+from . import daily_visit_summary
+from . import daily_visit_summary_line
