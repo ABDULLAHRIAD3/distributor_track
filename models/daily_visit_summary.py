@@ -43,6 +43,12 @@ class DailyVisitSummary(models.Model):
         string="Allowed Child Companies"
     )
 
+    status = fields.Selection(
+        [('draft', 'Draft'), ('confirmed', 'Confirmed')],
+        string="Status",
+        default='draft',
+        tracking=1
+    )
     distributor = fields.Many2one('res.partner', string="Distributor", tracking=1)
     cash = fields.Integer(string="Cash")
     deferred_payment = fields.Integer(string="Deferred Payment", compute="_compute_totals", store=True)
@@ -59,22 +65,40 @@ class DailyVisitSummary(models.Model):
     visit_report_ids = fields.One2many(
         'daily.visit.summary.line', 'summary_id', string="Visit Reports"
     )
+    show_draft_button = fields.Boolean(compute='_compute_show_buttons')
+    show_confirmed_button = fields.Boolean(compute='_compute_show_buttons')
 
-    @api.model
+    @api.depends('status')
+    def _compute_show_buttons(self):
+        for rec in self:
+            rec.show_draft_button = rec.status in ('confirmed')
+            rec.show_confirmed_button = rec.status in ('draft')
+    
+    @api.model_create_multi
     def create(self, vals):
-        rec = super().create(vals)
-        rec.message_post(body=f"تم إنشاء الملخص لليوم {rec.date}")
-        return rec
+        records = super().create(vals)
+        for rec in records:
+            rec.message_post(body=f"تم إنشاء الملخص لليوم {rec.date}")
+        return records
 
     def write(self, vals):
         res = super().write(vals)
-        self.message_post(body="تم تحديث الملخص اليومي")
+        for rec in self:
+            rec.message_post(body="تم تحديث الملخص اليومي")
         return res
     
     def unlink(self):
         for rec in self:
             rec.message_post(body="تم حذف التقرير")
         return super().unlink()
+    
+    def action_draft(self):
+        for res in self:
+            res.status = 'draft'
+
+    def action_confirm(self):
+        for res in self:
+            res.status = 'confirmed'
 
     @api.onchange('date', 'user_id')
     def _onchange_load_visits(self):

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-07 16:15+0000\n"
-"PO-Revision-Date: 2025-12-07 16:23+0000\n"
+"POT-Creation-Date: 2025-12-16 10:31+0000\n"
+"PO-Revision-Date: 2025-12-16 10:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -68,6 +68,11 @@ msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Cant
 msgstr "التقسيمات الادارية"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__allowed_child_company_ids
+msgid "Allowed Child Companies"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__another
 msgid "Another"
 msgstr "اخرى"
@@ -97,6 +102,11 @@ msgstr "بطاريات اوكايا"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__battery_okaya_delivery
 msgid "Battery Okaya Delivery"
 msgstr "تسليم بطاريات اوكايا"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__child_company_id
+msgid "Branch/Child Company"
+msgstr "اسم الفرع"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__cash
@@ -131,6 +141,16 @@ msgstr "التحصيل"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__compliance_sales_policy
 msgid "Compliance Sales Policy"
 msgstr "الألتزام بسياسة المبيعات"
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
+msgid "Confirm"
+msgstr "تمت مراجعته"
+
+#. module: distributor_track
+#: model:ir.model.fields.selection,name:distributor_track.selection__daily_visit_summary__status__confirmed
+msgid "Confirmed"
+msgstr "تمت مراجعته"
 
 #. module: distributor_track
 #: model:ir.model,name:distributor_track.model_res_partner
@@ -175,6 +195,11 @@ msgstr "الملخص اليومي"
 #: model:res.groups,name:distributor_track.summary_manager_group
 msgid "Daily Summary Manager"
 msgstr "مدير الملخص اليومي"
+
+#. module: distributor_track
+#: model:ir.actions.report,name:distributor_track.action_daily_visit_summary_pdf
+msgid "Daily Summary PDF"
+msgstr "الملخص اليومي PDF"
 
 #. module: distributor_track
 #: model:res.groups,name:distributor_track.summary_user_group
@@ -268,6 +293,12 @@ msgid "Distributor User"
 msgstr "الموزع العادي"
 
 #. module: distributor_track
+#: model:ir.model.fields.selection,name:distributor_track.selection__daily_visit_summary__status__draft
+#: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__electrical_cables
 msgid "Electrical Cables"
 msgstr "كيبلات"
@@ -303,6 +334,11 @@ msgstr ""
 #: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_type_icon
 #: model:ir.model.fields,help:distributor_track.field_daily_visit_summary__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "Generated on"
 msgstr ""
 
 #. module: distributor_track
@@ -393,13 +429,13 @@ msgstr "تسليم بطاريات ليثيوم"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_has_error
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "رساله خطأ"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_ids
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "رساله"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__mppt_controller
@@ -471,13 +507,13 @@ msgstr ""
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__total_visits
 msgid "Number of Visits"
-msgstr ""
+msgstr "عدد الزيارات"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__message_has_error_counter
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "عدد الاخطاء"
 
 #. module: distributor_track
 #: model:ir.model.fields,help:distributor_track.field_daily_reports__message_needaction_counter
@@ -500,6 +536,11 @@ msgstr "محولات اوكايا"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__other_notes
 msgid "Other Notes"
 msgstr "ملاحظات اخرى"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__company_id
+msgid "Parent Company"
+msgstr "الادارة"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__percent_vs_7day_avg
@@ -560,14 +601,20 @@ msgid "Sales Team"
 msgstr "فريق المبيعات"
 
 #. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__show_confirmed_button
+msgid "Show Confirmed Button"
+msgstr "إظهار زر المراجعه"
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__show_done_button
 msgid "Show Done Button"
 msgstr ""
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__show_draft_button
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__show_draft_button
 msgid "Show Draft Button"
-msgstr ""
+msgstr "إظهار زر المسودة"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__show_in_progress_button
@@ -583,6 +630,11 @@ msgstr "الواح شمسية"
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__solar_panel_delivery
 msgid "Solar Panel Delivery"
 msgstr "تسليم الواح شمسية"
+
+#. module: distributor_track
+#: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__status
+msgid "Status"
+msgstr "الحاله"
 
 #. module: distributor_track
 #: model:ir.model.fields,help:distributor_track.field_daily_reports__activity_state
@@ -649,12 +701,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary__visit_report_ids
 #: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
 msgid "Visit Reports"
-msgstr ""
+msgstr "تقرير الزيارات"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_visit_summary_line__time_of_visit
 msgid "Visit Time"
-msgstr ""
+msgstr "وقت الزيارة"
 
 #. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__website_message_ids
@@ -674,6 +726,11 @@ msgid "With Battery Okaya"
 msgstr "التقارير التي تحتوي على بطاريات اوكايا"
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "| Daily Visit Summary Report"
+msgstr "تقرير ملخص الزيارات اليومية"
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "آجل"
 msgstr ""
@@ -689,13 +746,20 @@ msgid "ألواح شمسية جينكو:"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
 #: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
 msgid "إجمالي الآجل"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
 #: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
 msgid "إجمالي التحصيل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "إجمالي الزيارات"
 msgstr ""
 
 #. module: distributor_track
@@ -704,11 +768,18 @@ msgid "إجمالي النقد"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "إجمالي النقدي"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.action_daily_visit_summary_search
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
 msgid "إخفاء التقارير التي تمت مراجعتها"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.action_daily_visit_summary_search
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_search
 msgid "إخفاء ماتمت مراجعته"
 msgstr ""
@@ -734,6 +805,16 @@ msgid "اجمالي مديونية البضاعة المبياعة"
 msgstr ""
 
 #. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_visit_summary__company_id
+msgid "اختر الشركة الأم المرتبطة بالشركة الفرعية"
+msgstr ""
+
+#. module: distributor_track
+#: model:ir.model.fields,help:distributor_track.field_daily_visit_summary__child_company_id
+msgid "اختر الشركة الفرعية المرتبطة بالشركة الأم"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,help:distributor_track.field_daily_visit_summary__assistant_id
 msgid "اختر مساعد المندوب من قائمة الموظفين"
 msgstr ""
@@ -754,7 +835,23 @@ msgid "اضغط على \"إنشاء\" لإضافة تقرير يومي جديد.
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "الآجل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "الإحصائيات العامه"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "التاريخ"
+msgstr ""
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
 msgid "التحصيل"
 msgstr ""
 
@@ -769,13 +866,29 @@ msgid "الحالة"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "الرقم"
+msgstr ""
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "الشارع"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "العملاء الجدد"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.model.fields,field_description:distributor_track.field_daily_reports__partner_id
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
 msgid "العميل"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "الفرع"
 msgstr ""
 
 #. module: distributor_track
@@ -801,6 +914,11 @@ msgid "المسؤول"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "الملاحظات"
+msgstr ""
+
+#. module: distributor_track
 #: model:ir.ui.menu,name:distributor_track.distributor_configuration_menu_item
 msgid "الملخص اليومي"
 msgstr ""
@@ -823,6 +941,11 @@ msgstr ""
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.view_daily_visit_summary_form
 msgid "النسبة مقارنة بمتوسط 7 أيام"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "النقدي"
 msgstr ""
 
 #. module: distributor_track
@@ -903,6 +1026,16 @@ msgstr ""
 #. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "تسليم كروت الضمان الجديدة"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "تفاصيل الزيارات"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "تقرير ملخص الزيارات اليومية"
 msgstr ""
 
 #. module: distributor_track
@@ -1021,8 +1154,23 @@ msgid "مراجعة تقرير مديونية العملاء"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "مساعد المبيعات"
+msgstr ""
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "مطابقة كشف الحساب"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "مقارنة باليوم السابق"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "مقارنة بمتوسط 7 أيام"
 msgstr ""
 
 #. module: distributor_track
@@ -1031,8 +1179,18 @@ msgid "ملاحظات أخرى:"
 msgstr ""
 
 #. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "ملاحظات الزيارات"
+msgstr ""
+
+#. module: distributor_track
 #: model_terms:ir.ui.view,arch_db:distributor_track.daily_reports_view_form
 msgid "من"
+msgstr ""
+
+#. module: distributor_track
+#: model_terms:ir.ui.view,arch_db:distributor_track.daily_visit_summary_pdf_template
+msgid "مندوب المبيعات"
 msgstr ""
 
 #. module: distributor_track

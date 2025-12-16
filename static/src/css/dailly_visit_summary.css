@@ -1,0 +1,345 @@
+/* ===========================================
+   Daily Visit Summary Report Styles
+   Odoo 18 Compatible
+   =========================================== */
+
+/* Base Page Styles */
+.dvs-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: #ffffff;
+}
+
+/* ===========================================
+   Header Section
+   =========================================== */
+.dvs-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.dvs-header__circle-lg {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.dvs-header__circle-sm {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.dvs-header__title {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.dvs-header__icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.dvs-header__subtitle {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================
+   Info Cards Grid
+   =========================================== */
+.dvs-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.dvs-info-card {
+  flex: 1;
+  min-width: 200px;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 15px 20px;
+  border-left: 4px solid #e2e8f0;
+}
+
+.dvs-info-card--date {
+  border-left-color: #3b82f6;
+}
+
+.dvs-info-card--salesperson {
+  border-left-color: #10b981;
+}
+
+.dvs-info-card--assistant {
+  border-left-color: #f59e0b;
+}
+
+.dvs-info-card__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dvs-info-card__icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.dvs-info-card__label {
+  color: #64748b;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dvs-info-card__value {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Stats Card */
+.dvs-stats-card {
+  flex: 1;
+  min-width: 200px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: white;
+}
+
+.dvs-stats-card__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dvs-stats-card__item {
+  text-align: center;
+}
+
+.dvs-stats-card__label {
+  margin: 0 0 5px 0;
+  font-size: 11px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.dvs-stats-card__value {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ===========================================
+   Visit Details Section
+   =========================================== */
+.dvs-details-section {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.dvs-details-header {
+  background: #f1f5f9;
+  padding: 15px 20px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.dvs-details-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+}
+
+.dvs-details-title__icon {
+  margin-right: 10px;
+}
+
+/* Table Styles */
+.dvs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dvs-table thead tr {
+  background: #1e3a5f;
+}
+
+.dvs-table th {
+  padding: 12px 15px;
+  font-weight: 600;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.dvs-table__th--seq {
+  width: 50px;
+  text-align: center !important;
+}
+
+.dvs-table__th--customer {
+  width: 25%;
+}
+
+.dvs-table__th--time {
+  width: 15%;
+  text-align: center !important;
+}
+
+.dvs-table__th--first {
+  width: 12%;
+  text-align: center !important;
+}
+
+.dvs-table__th--notes {
+  width: auto;
+}
+
+.dvs-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dvs-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.dvs-table td {
+  padding: 12px 15px;
+  font-size: 13px;
+}
+
+.dvs-table__td--seq {
+  text-align: center;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.dvs-table__td--customer {
+  color: #334155;
+  font-weight: 500;
+}
+
+.dvs-table__td--time {
+  text-align: center;
+}
+
+.dvs-table__td--first {
+  text-align: center;
+}
+
+.dvs-table__td--notes {
+  color: #64748b;
+}
+
+/* Badges */
+.dvs-time-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.dvs-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.dvs-badge--yes {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.dvs-badge--no {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Empty State */
+.dvs-empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* ===========================================
+   Footer Section
+   =========================================== */
+.dvs-footer {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 2px dashed #e2e8f0;
+  text-align: center;
+}
+
+.dvs-footer__text {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+/* ===========================================
+   Print Optimizations
+   =========================================== */
+@media print {
+  .dvs-page {
+    padding: 0;
+  }
+
+  .dvs-header {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .dvs-stats-card {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .dvs-table thead tr {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .dvs-table tbody tr:nth-child(even) {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
