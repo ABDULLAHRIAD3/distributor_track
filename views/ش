@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_daily_visit_summary_pdf" model="ir.actions.report">
+        <field name="name">Daily Visit Summary Report</field>
+        <field name="model">daily.visit.summary</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">distributor_track.report_daily_visit_summary</field>
+        <field name="report_file">distributor_track.report_daily_visit_summary</field>
+        <field name="binding_model_id" ref="model_daily_visit_summary"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="report_daily_visit_summary">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" dir="rtl">
+                        <style>
+                            /* إزالة جميع font-family والاعتماد على خطوط Odoo الافتراضية */
+                            
+                            .page {
+                                direction: rtl;
+                                text-align: right;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            /* Header Section */
+                            .report-header {
+                                text-align: center;
+                                margin-bottom: 25px;
+                                padding: 25px;
+                                background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+                                border-radius: 12px;
+                                color: white;
+                                position: relative;
+                                overflow: hidden;
+                            }
+                            .report-header::before {
+                                content: '';
+                                position: absolute;
+                                top: -50%;
+                                right: -50%;
+                                width: 100%;
+                                height: 200%;
+                                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+                            }
+                            .report-header h2 {
+                                margin: 0 0 10px 0;
+                                font-size: 26px;
+                                font-weight: 700;
+                                color: white;
+                                position: relative;
+                            }
+                            .report-header p {
+                                margin: 0;
+                                font-size: 14px;
+                                color: rgba(255,255,255,0.9);
+                                position: relative;
+                            }
+
+                            /* Info Cards */
+                            .info-cards {
+                                width: 100%;
+                                margin-bottom: 25px;
+                                border-collapse: separate;
+                                border-spacing: 10px;
+                            }
+                            .info-card {
+                                background: #f8fafc;
+                                border-radius: 10px;
+                                padding: 18px;
+                                vertical-align: top;
+                            }
+                            .info-card-blue { border-right: 4px solid #3b82f6; }
+                            .info-card-green { border-right: 4px solid #10b981; }
+                            .info-card-orange { border-right: 4px solid #f59e0b; }
+                            .info-card-purple { border-right: 4px solid #8b5cf6; }
+                            
+                            .info-card-icon {
+                                width: 36px;
+                                height: 36px;
+                                border-radius: 8px;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 10px;
+                                font-weight: bold;
+                                color: white;
+                            }
+                            .icon-blue { background: #3b82f6; }
+                            .icon-green { background: #10b981; }
+                            .icon-orange { background: #f59e0b; }
+                            .icon-purple { background: #8b5cf6; }
+                            
+                            .info-card-label {
+                                margin: 0 0 5px 0;
+                                color: #64748b;
+                                font-size: 12px;
+                            }
+                            .info-card-value {
+                                margin: 0;
+                                font-weight: 600;
+                                color: #1e293b;
+                                font-size: 15px;
+                            }
+
+                            /* Statistics Section */
+                            .stats-section {
+                                background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+                                border-radius: 12px;
+                                padding: 25px;
+                                margin-bottom: 25px;
+                                color: white;
+                            }
+                            .stats-title {
+                                margin: 0 0 20px 0;
+                                text-align: center;
+                                font-size: 18px;
+                                font-weight: 600;
+                                color: white;
+                            }
+                            .stats-table {
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+                            .stat-item {
+                                text-align: center;
+                                padding: 15px;
+                            }
+                            .stat-value {
+                                margin: 0;
+                                font-size: 28px;
+                                font-weight: 700;
+                                color: white;
+                            }
+                            .stat-label {
+                                margin: 8px 0 0 0;
+                                font-size: 13px;
+                                color: rgba(255,255,255,0.9);
+                            }
+
+                            /* Financial Summary */
+                            .financial-cards {
+                                width: 100%;
+                                margin-bottom: 25px;
+                                border-collapse: separate;
+                                border-spacing: 10px;
+                            }
+                            .financial-card {
+                                border-radius: 10px;
+                                padding: 20px;
+                                text-align: center;
+                            }
+                            .financial-card-cash {
+                                background: #ecfdf5;
+                                border: 1px solid #a7f3d0;
+                            }
+                            .financial-card-credit {
+                                background: #fef3c7;
+                                border: 1px solid #fcd34d;
+                            }
+                            .financial-card-collection {
+                                background: #ede9fe;
+                                border: 1px solid #c4b5fd;
+                            }
+                            .financial-label {
+                                margin: 0 0 8px 0;
+                                font-size: 13px;
+                            }
+                            .financial-label-cash { color: #065f46; }
+                            .financial-label-credit { color: #92400e; }
+                            .financial-label-collection { color: #5b21b6; }
+                            
+                            .financial-value {
+                                margin: 0;
+                                font-size: 22px;
+                                font-weight: 700;
+                            }
+                            .financial-value-cash { color: #047857; }
+                            .financial-value-credit { color: #b45309; }
+                            .financial-value-collection { color: #6d28d9; }
+
+                            /* Details Table */
+                            .details-section {
+                                margin-bottom: 25px;
+                            }
+                            .details-header {
+                                margin: 0;
+                                padding: 12px 20px;
+                                background: #1e3a5f;
+                                color: white;
+                                border-radius: 10px 10px 0 0;
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                            .details-table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                border: 1px solid #e2e8f0;
+                                border-top: none;
+                            }
+                            .details-table th {
+                                padding: 14px 12px;
+                                background: #f1f5f9;
+                                border: 1px solid #e2e8f0;
+                                text-align: right;
+                                font-weight: 600;
+                                color: #334155;
+                                font-size: 13px;
+                            }
+                            .details-table td {
+                                padding: 12px;
+                                border: 1px solid #e2e8f0;
+                                font-size: 13px;
+                            }
+                            .row-even { background: #f8fafc; }
+                            .row-odd { background: white; }
+                            
+                            .td-center { text-align: center; }
+                            .td-cash { color: #047857; font-weight: 600; }
+                            .td-credit { color: #b45309; font-weight: 600; }
+                            .td-collection { color: #6d28d9; font-weight: 600; }
+
+                            /* Footer */
+                            .report-footer {
+                                text-align: center;
+                                padding: 15px;
+                                background: #f8fafc;
+                                border-radius: 10px;
+                                margin-top: 25px;
+                            }
+                            .report-footer p {
+                                margin: 0;
+                                color: #64748b;
+                                font-size: 12px;
+                            }
+                        </style>
+
+                        <!-- Header -->
+                        <div class="report-header">
+                            <h2>ملخص الزيارات اليومية</h2>
+                            <p><span t-field="doc.report_date"/></p>
+                        </div>
+
+                        <!-- Info Cards -->
+                        <table class="info-cards">
+                            <tr>
+                                <td style="width: 25%;">
+                                    <div class="info-card info-card-blue">
+                                        <div class="info-card-icon icon-blue">M</div>
+                                        <p class="info-card-label">المندوب</p>
+                                        <p class="info-card-value"><span t-field="doc.employee_id.name"/></p>
+                                    </div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="info-card info-card-green">
+                                        <div class="info-card-icon icon-green">A</div>
+                                        <p class="info-card-label">المنطقة</p>
+                                        <p class="info-card-value"><span t-field="doc.zone_id.name"/></p>
+                                    </div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="info-card info-card-orange">
+                                        <div class="info-card-icon icon-orange">T</div>
+                                        <p class="info-card-label">تاريخ التقرير</p>
+                                        <p class="info-card-value"><span t-field="doc.report_date"/></p>
+                                    </div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="info-card info-card-purple">
+                                        <div class="info-card-icon icon-purple">D</div>
+                                        <p class="info-card-label">رقم التقرير</p>
+                                        <p class="info-card-value"><span t-field="doc.name"/></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Statistics Section -->
+                        <div class="stats-section">
+                            <h4 class="stats-title">احصائيات الزيارات</h4>
+                            <table class="stats-table">
+                                <tr>
+                                    <td class="stat-item">
+                                        <p class="stat-value"><span t-field="doc.total_visits"/></p>
+                                        <p class="stat-label">اجمالي الزيارات</p>
+                                    </td>
+                                    <td class="stat-item">
+                                        <p class="stat-value"><span t-field="doc.new_customers"/></p>
+                                        <p class="stat-label">عملاء جدد</p>
+                                    </td>
+                                    <td class="stat-item">
+                                        <p class="stat-value"><span t-field="doc.total_orders"/></p>
+                                        <p class="stat-label">اجمالي الطلبات</p>
+                                    </td>
+                                    <td class="stat-item">
+                                        <p class="stat-value"><span t-field="doc.returns_count"/></p>
+                                        <p class="stat-label">المرتجعات</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Financial Summary -->
+                        <table class="financial-cards">
+                            <tr>
+                                <td style="width: 33.33%;">
+                                    <div class="financial-card financial-card-cash">
+                                        <p class="financial-label financial-label-cash">اجمالي النقدي</p>
+                                        <p class="financial-value financial-value-cash">
+                                            <span t-field="doc.total_cash" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td style="width: 33.33%;">
+                                    <div class="financial-card financial-card-credit">
+                                        <p class="financial-label financial-label-credit">اجمالي الآجل</p>
+                                        <p class="financial-value financial-value-credit">
+                                            <span t-field="doc.total_credit" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td style="width: 33.33%;">
+                                    <div class="financial-card financial-card-collection">
+                                        <p class="financial-label financial-label-collection">اجمالي التحصيل</p>
+                                        <p class="financial-value financial-value-collection">
+                                            <span t-field="doc.total_collection" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Visit Details Table -->
+                        <div class="details-section">
+                            <h4 class="details-header">تفاصيل الزيارات</h4>
+                            <table class="details-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>الموزع</th>
+                                        <th>نقدي</th>
+                                        <th>آجل</th>
+                                        <th>تحصيل</th>
+                                        <th>وقت الزيارة</th>
+                                        <th>ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="row_num" t-value="0"/>
+                                    <t t-foreach="doc.visit_report_ids" t-as="line">
+                                        <t t-set="row_num" t-value="row_num + 1"/>
+                                        <tr t-attf-class="{{ 'row-odd' if row_num % 2 == 1 else 'row-even' }}">
+                                            <td class="td-center"><t t-esc="row_num"/></td>
+                                            <td><span t-field="line.distributor"/></td>
+                                            <td class="td-center td-cash"><span t-field="line.cash"/></td>
+                                            <td class="td-center td-credit"><span t-field="line.credit"/></td>
+                                            <td class="td-center td-collection"><span t-field="line.collection"/></td>
+                                            <td class="td-center"><span t-field="line.time_of_visit" t-options="{'widget': 'datetime', 'format': 'HH:mm'}"/></td>
+                                            <td><span t-field="line.notes"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="report-footer">
+                            <p>تم انشاء التقرير بتاريخ: <span t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M')"/></p>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

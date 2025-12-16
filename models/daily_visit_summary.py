@@ -21,6 +21,28 @@ class DailyVisitSummary(models.Model):
     )
 
     date = fields.Date(string="Date", required=True, tracking=1)
+    company_id = fields.Many2one(
+        'res.company',
+        string="Parent Company",
+        required=True,
+        default=lambda self: self.env.company,
+        tracking=1,
+        help="اختر الشركة الأم المرتبطة بالشركة الفرعية"
+    )
+
+    child_company_id = fields.Many2one(
+        'res.company',
+        string="Branch/Child Company",
+        tracking=1,
+        help="اختر الشركة الفرعية المرتبطة بالشركة الأم"
+    )
+
+    allowed_child_company_ids = fields.Many2many(
+        'res.company',
+        compute='_compute_allowed_child_companies',
+        string="Allowed Child Companies"
+    )
+
     distributor = fields.Many2one('res.partner', string="Distributor", tracking=1)
     cash = fields.Integer(string="Cash")
     deferred_payment = fields.Integer(string="Deferred Payment", compute="_compute_totals", store=True)
@@ -184,3 +206,36 @@ class DailyVisitSummary(models.Model):
                 if prior_count == 0:
                     first_time_count += 1
             rec.first_time_customers = first_time_count
+
+
+    @api.depends('company_id')
+    def _compute_allowed_child_companies(self):
+        for rec in self:
+            if rec.company_id:
+                # جلب الشركات الفرعية المباشرة + الشركة نفسها
+                child_companies = self.env['res.company'].search([
+                    '|',
+                    ('parent_id', '=', rec.company_id.id),
+                    ('id', '=', rec.company_id.id)
+                ])
+                rec.allowed_child_company_ids = child_companies
+            else:
+                rec.allowed_child_company_ids = False
+
+    @api.onchange('company_id')
+    def _onchange_company_id(self):
+        self.child_company_id = False
+        if self.company_id:
+            return {
+                'domain': {
+                    'child_company_id': [
+                        '|',
+                        ('parent_id', '=', self.company_id.id),
+                        ('id', '=', self.company_id.id)
+                    ]
+                }
+            }
+        # تصدير التقرير PDF
+    def action_export_pdf(self):
+        return self.env.ref('distributor_track.action_daily_visit_summary_pdf').report_action(self)
+

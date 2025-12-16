@@ -24,12 +24,17 @@
         'views/daily_reports_view.xml',
         'views/res_partner_view.xml',
         'views/daily_visit_summary_views.xml',
+        'data/paperformat.xml',
+        'report/daily_visit_summary_report.xml',
     ],
 
     'assets': {
+        'web.report_assets_common': [
+            'distributor_track/static/src/css/daily_report_template.css',
+        ],
         'web.assets_backend': [
             'distributor_track/static/src/css/dashboard.css',
-            'distributor_track/static/src/js/kpi_charts.js',
+            'distributor_track/static/src/js/package.json',
         ],
     },
 

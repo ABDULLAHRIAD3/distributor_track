@@ -5,11 +5,18 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <header>
+                        <button name="action_export_pdf" type="object" class="btn btn-primary" string="Export PDF"/>
+                    </header>
+
                     <group>
                         <field name="name"/>
                         <field name="user_id"/>
                         <field name="assistant_id"/>
                         <field name="date"/>
+                        <field name="child_company_id"/>
+                        <field name="allowed_child_company_ids" invisible="1"/>
+
                     </group>
                     <!-- KPI header -->
                     <xpath expr="//sheet" position="before">
@@ -91,6 +98,8 @@
                     
                         </div>
                     </xpath>
+
+
 
                     <notebook>
                         <page string="Visit Reports">

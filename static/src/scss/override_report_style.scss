@@ -1,0 +1,23 @@
+// استدعاء المتغيرات الرسمية
+@import "web/static/src/scss/primary_variables";
+
+// تعيين نفس الخط المستخدم رسمياً
+body, * {
+    font-family: $o-font-family-base !important;
+    line-height: 1.4 !important;
+    font-size: 13px !important;
+    direction: rtl;
+    unicode-bidi: plaintext;
+}
+
+// العناوين الرسمية
+h1, h2, h3, h4, h5, h6 {
+    font-family: $o-font-family-base !important;
+    font-weight: 600 !important;
+}
+
+// تحسين تنسيق الأرقام والنصوص المختلطة
+.number, .amount, .qty, .price {
+    font-family: $o-font-family-base !important;
+    letter-spacing: 0.2px;
+}

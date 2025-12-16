@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- تعريف التقرير -->
+    <record id="action_daily_visit_summary_pdf" model="ir.actions.report">
+        <field name="name">Daily Summary PDF</field>
+        <field name="model">daily.visit.summary</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">distributor_track.daily_visit_summary_pdf_template</field>
+        <field name="binding_model_id" ref="model_daily_visit_summary"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_daily_report"/>
+    </record>
+
+    
+
+
+    <template id="daily_visit_summary_pdf_template">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page report-page" dir="rtl">
+
+                        <!-- Header Section -->
+                        <div class="header-wrapper">
+                            <div class="header-cell">
+                                <div class="header-box">
+                                    <div class="header-circle-1"></div>
+                                    <div class="header-circle-2"></div>
+                                    <h1 class="header-title">تقرير ملخص الزيارات اليومية</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Cards Section - <CHANGE> عكس ترتيب البطاقات من اليمين لليسار -->
+                        <div class="info-cards-container">
+                            <div class="info-cards-row">
+                                <!-- بطاقة الفرع (كانت آخر واحدة، الآن أولى) -->
+                                <div class="info-card-cell">
+                                    <div class="info-card info-card--purple">
+                                        <p class="info-card-label">الفرع</p>
+                                        <p class="info-card-value">
+                                            <t t-if="doc.child_company_id"><t t-esc="doc.child_company_id.name"/></t>
+                                            <t t-else="">-</t>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- بطاقة مساعد المبيعات -->
+                                <div class="info-card-cell">
+                                    <div class="info-card info-card--amber">
+                                        <p class="info-card-label">مساعد المبيعات</p>
+                                        <p class="info-card-value">
+                                            <t t-if="doc.assistant_id"><t t-esc="doc.assistant_id.name"/></t>
+                                            <t t-else="">-</t>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- بطاقة مندوب المبيعات -->
+                                <div class="info-card-cell">
+                                    <div class="info-card info-card--green">
+                                        <p class="info-card-label">مندوب المبيعات</p>
+                                        <p class="info-card-value"><t t-esc="doc.user_id.name"/></p>
+                                    </div>
+                                </div>
+                                <!-- بطاقة التاريخ (كانت أولى، الآن آخر واحدة) -->
+                                <div class="info-card-cell">
+                                    <div class="info-card info-card--blue">
+                                        <p class="info-card-label">التاريخ</p>
+                                        <p class="info-card-value"><t t-esc="doc.date"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics Section - <CHANGE> عكس ترتيب الإحصائيات -->
+                        <div class="stats-section">
+                            <h3 class="stats-title">الإحصائيات العامه</h3>
+                            <div class="stats-table">
+                                <div class="stats-row">
+                                    <div class="stats-cell">
+                                        <p class="stats-title">مقارنة بمتوسط 7 أيام</p>
+                                        <p class="stats-value"><t t-esc="'%.1f' % doc.percent_vs_7day_avg"/>%</p>
+                                    </div>
+                                    <div class="stats-cell">
+                                        <p class="stats-label">مقارنة باليوم السابق</p>
+                                        <p class="stats-value"><t t-esc="'%.1f' % doc.percent_vs_prev_day"/>%</p>
+                                    </div>
+                                    <div class="stats-cell">
+                                        <p class="stats-label">العملاء الجدد</p>
+                                        <p class="stats-value"><t t-esc="doc.first_time_customers"/></p>
+                                    </div>
+                                    <div class="stats-cell">
+                                        <p class="stats-label">إجمالي الزيارات</p>
+                                        <p class="stats-value"><t t-esc="doc.total_visits"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table Section - <CHANGE> عكس ترتيب أعمدة الجدول -->
+                        <div class="table-container">
+                            <div class="table-header">
+                                <h3 class="table-header-title">تفاصيل الزيارات</h3>
+                            </div>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">التحصيل</th>
+                                        <th class="text-center">الآجل</th>
+                                        <th class="text-center">النقدي</th>
+                                        <th class="text-left">العميل</th>
+                                        <th class="text-center">الرقم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="doc.visit_report_ids" t-as="visit">
+                                        <tr>
+                                            <td class="td-collection"><t t-esc="'{:,.0f}'.format(visit.collection or 0)"/></td>
+                                            <td class="td-credit"><t t-esc="'{:,.0f}'.format(visit.credit or 0)"/></td>
+                                            <td class="td-cash"><t t-esc="'{:,.0f}'.format(visit.cash or 0)"/></td>
+                                            <td class="td-customer">
+                                                <t t-if="visit.distributor"><t t-esc="visit.distributor"/></t>
+                                                <t t-else="">-</t>
+                                            </td>
+                                            <td class="td-index"><t t-esc="visit_index + 1"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Financial Cards Section - <CHANGE> عكس ترتيب البطاقات المالية -->
+                        <div class="financial-container">
+                            <div class="financial-row">
+                                <div class="financial-cell">
+                                    <div class="financial-card financial-card--collection">
+                                        <p class="financial-label--collection">إجمالي التحصيل</p>
+                                        <p class="financial-value--collection"><t t-esc="'{:,.0f}'.format(doc.total_collection)"/></p>
+                                    </div>
+                                </div>
+                                <div class="financial-cell">
+                                    <div class="financial-card financial-card--credit">
+                                        <p class="financial-label--credit">إجمالي الآجل</p>
+                                        <p class="financial-value--credit"><t t-esc="'{:,.0f}'.format(doc.total_credit)"/></p>
+                                    </div>
+                                </div>
+                                <div class="financial-cell">
+                                    <div class="financial-card financial-card--cash">
+                                        <p class="financial-label--cash">إجمالي النقدي</p>
+                                        <p class="financial-value--cash"><t t-esc="'{:,.0f}'.format(doc.total_cash)"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <t t-set="visits_with_notes" t-value="[v for v in doc.visit_report_ids if v.notes]"/>
+                        <t t-if="visits_with_notes">
+                            <div class="notes-table-container">
+                                <div class="notes-table-header">
+                                    <h3 class="notes-table-title">ملاحظات الزيارات</h3>
+                                </div>
+                                <table class="notes-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-right" style="width: 70%;">الملاحظات</th>
+                                            <th class="text-right" style="width: 30%;">العميل</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="visits_with_notes" t-as="visit">
+                                            <tr>
+                                                <td class="notes-cell"><t t-esc="visit.notes"/></td>
+                                                <td class="customer-cell">
+                                                    <t t-if="visit.distributor"><t t-esc="visit.distributor"/></t>
+                                                    <t t-else="">-</t>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+
+                        <!-- Footer - <CHANGE> تعريب الـ Footer -->
+                        <div class="report-footer">
+                            <p class="footer-text">
+                                Generated on <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M')"/> | Daily Visit Summary Report
+                            </p>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+
