@@ -20,10 +20,14 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+
+        'views/daily_visit_summary_action.xml',
         'views/base_menu.xml',
+
         'views/daily_reports_view.xml',
         'views/res_partner_view.xml',
         'views/daily_visit_summary_views.xml',
+
         'data/paperformat.xml',
         'report/daily_visit_summary_report.xml',
     ],

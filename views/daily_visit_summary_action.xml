@@ -1,0 +1,8 @@
+<odoo>
+    <record id="action_daily_visit_summary" model="ir.actions.act_window">
+        <field name="name">Daily Summary</field>
+        <field name="res_model">daily.visit.summary</field>
+        <field name="context">{'search_default_confirmed': 1}</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- تعريف التقرير -->
     <record id="action_daily_visit_summary_pdf" model="ir.actions.report">
         <field name="name">Daily Summary PDF</field>
         <field name="model">daily.visit.summary</field>
@@ -10,9 +9,6 @@
         <field name="binding_type">report</field>
         <field name="paperformat_id" ref="paperformat_daily_report"/>
     </record>
-
-    
-
 
     <template id="daily_visit_summary_pdf_template">
         <t t-call="web.html_container">
@@ -32,7 +28,7 @@
                             </div>
                         </div>
 
-                        <!-- Info Cards Section - <CHANGE> عكس ترتيب البطاقات من اليمين لليسار -->
+                        <!-- Info Cards Section ترتيب البطاقات من اليمين لليسار -->
                         <div class="info-cards-container">
                             <div class="info-cards-row">
                                 <!-- بطاقة الفرع (كانت آخر واحدة، الآن أولى) -->
@@ -62,7 +58,7 @@
                                         <p class="info-card-value"><t t-esc="doc.user_id.name"/></p>
                                     </div>
                                 </div>
-                                <!-- بطاقة التاريخ (كانت أولى، الآن آخر واحدة) -->
+                                <!-- بطاقة التاريخ -->
                                 <div class="info-card-cell">
                                     <div class="info-card info-card--blue">
                                         <p class="info-card-label">التاريخ</p>
@@ -72,13 +68,13 @@
                             </div>
                         </div>
 
-                        <!-- Statistics Section - <CHANGE> عكس ترتيب الإحصائيات -->
+                        <!-- ترتيب الإحصائيات -->
                         <div class="stats-section">
                             <h3 class="stats-title">الإحصائيات العامه</h3>
                             <div class="stats-table">
                                 <div class="stats-row">
                                     <div class="stats-cell">
-                                        <p class="stats-title">مقارنة بمتوسط 7 أيام</p>
+                                        <p class="stats-label">مقارنة بمتوسط 7 أيام</p>
                                         <p class="stats-value"><t t-esc="'%.1f' % doc.percent_vs_7day_avg"/>%</p>
                                     </div>
                                     <div class="stats-cell">
@@ -97,7 +93,7 @@
                             </div>
                         </div>
 
-                        <!-- Table Section - <CHANGE> عكس ترتيب أعمدة الجدول -->
+                        <!-- ترتيب أعمدة الجدول -->
                         <div class="table-container">
                             <div class="table-header">
                                 <h3 class="table-header-title">تفاصيل الزيارات</h3>
@@ -129,7 +125,7 @@
                             </table>
                         </div>
 
-                        <!-- Financial Cards Section - <CHANGE> عكس ترتيب البطاقات المالية -->
+                        <!-- ترتيب البطاقات المالية -->
                         <div class="financial-container">
                             <div class="financial-row">
                                 <div class="financial-cell">
@@ -181,7 +177,7 @@
                             </div>
                         </t>
 
-                        <!-- Footer - <CHANGE> تعريب الـ Footer -->
+                        <!-- Footer -->
                         <div class="report-footer">
                             <p class="footer-text">
                                 Generated on <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M')"/> | Daily Visit Summary Report
